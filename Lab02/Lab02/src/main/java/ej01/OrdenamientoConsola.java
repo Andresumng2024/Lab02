@@ -212,3 +212,31 @@ public static void realizarOperacionesConCadenas(Scanner scanner) {
 
         return String.valueOf(masFrecuente);
     }
+ public static void realizarOrdenamiento(Scanner scanner) {
+        System.out.print("Ingrese el tamaño del arreglo: ");
+        int tamano = scanner.nextInt();
+        double[] arreglo = new double[tamano];
+
+        Random random = new Random();
+        for (int i = 0; i < tamano; i++) {
+            arreglo[i] = random.nextDouble() * 100;
+        }
+
+        System.out.println("Arreglo original: " + Arrays.toString(arreglo));
+
+        // Burbuja
+        double[] arregloOrdenadoBurbuja = ordenarPorBurbuja(arreglo.clone());
+        System.out.println("Ordenado por Burbuja: " + Arrays.toString(arregloOrdenadoBurbuja));
+
+        // Inserción
+        double[] arregloOrdenadoInsercion = ordenarPorInsercion(arreglo.clone());
+        System.out.println("Ordenado por Inserción: " + Arrays.toString(arregloOrdenadoInsercion));
+
+        // Selección
+        double[] arregloOrdenadoSeleccion = ordenarPorSeleccion(arreglo.clone());
+        System.out.println("Ordenado por Selección: " + Arrays.toString(arregloOrdenadoSeleccion));
+
+        // MergeSort
+        double[] arregloOrdenadoMergeSort = ordenarPorMergeSort(arreglo.clone());
+        System.out.println("Ordenado por MergeSort: " + Arrays.toString(arregloOrdenadoMergeSort));
+    }
