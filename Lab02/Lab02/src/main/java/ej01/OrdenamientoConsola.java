@@ -110,4 +110,27 @@ public class OrdenamientoConsola {
         }
     }
 
-   
+    public static void realizarCalculosEstadisticos(Scanner scanner) {
+        System.out.print("Ingrese el tamaño del arreglo: ");
+        int tamano = scanner.nextInt();
+        double[] arreglo = new double[tamano];
+
+        Random random = new Random();
+        for (int i = 0; i < tamano; i++) {
+            arreglo[i] = random.nextDouble() * 100;
+        }
+
+        System.out.println("Arreglo generado: " + Arrays.toString(arreglo));
+
+        double media = calcularMedia(arreglo);
+        double mediana = calcularMediana(arreglo);
+        double varianza = calcularVarianza(arreglo, media);
+        double desviacionEstandar = Math.sqrt(varianza);
+        double moda = calcularModa(arreglo);
+
+        System.out.println("Media: " + media);
+        System.out.println("Mediana: " + mediana);
+        System.out.println("Varianza: " + varianza);
+        System.out.println("Desviación Estándar: " + desviacionEstandar);
+        System.out.println("Moda: " + (Double.isNaN(moda) ? "No hay moda" : moda));
+    }
