@@ -240,3 +240,79 @@ public static void realizarOperacionesConCadenas(Scanner scanner) {
         double[] arregloOrdenadoMergeSort = ordenarPorMergeSort(arreglo.clone());
         System.out.println("Ordenado por MergeSort: " + Arrays.toString(arregloOrdenadoMergeSort));
     }
+  public static double[] ordenarPorBurbuja(double[] arreglo) {
+        for (int i = 0; i < arreglo.length - 1; i++) {
+            for (int j = 0; j < arreglo.length - i - 1; j++) {
+                if (arreglo[j] > arreglo[j + 1]) {
+                    double temp = arreglo[j];
+                    arreglo[j] = arreglo[j + 1];
+                    arreglo[j + 1] = temp;
+                }
+            }
+        }
+        return arreglo;
+    }
+
+    public static double[] ordenarPorInsercion(double[] arreglo) {
+        for (int i = 1; i < arreglo.length; i++) {
+            double clave = arreglo[i];
+            int j = i - 1;
+            while (j >= 0 && arreglo[j] > clave) {
+                arreglo[j + 1] = arreglo[j];
+                j--;
+            }
+            arreglo[j + 1] = clave;
+        }
+        return arreglo;
+    }
+
+    public static double[] ordenarPorSeleccion(double[] arreglo) {
+        for (int i = 0; i < arreglo.length - 1; i++) {
+            int indiceMinimo = i;
+            for (int j = i + 1; j < arreglo.length; j++) {
+                if (arreglo[j] < arreglo[indiceMinimo]) {
+                    indiceMinimo = j;
+                }
+            }
+            double temp = arreglo[indiceMinimo];
+            arreglo[indiceMinimo] = arreglo[i];
+            arreglo[i] = temp;
+        }
+        return arreglo;
+    }
+
+    public static double[] ordenarPorMergeSort(double[] arreglo) {
+        if (arreglo.length <= 1) {
+            return arreglo;
+        }
+
+        int mitad = arreglo.length / 2;
+        double[] izquierda = Arrays.copyOfRange(arreglo, 0, mitad);
+        double[] derecha = Arrays.copyOfRange(arreglo, mitad, arreglo.length);
+
+        return mezclar(ordenarPorMergeSort(izquierda), ordenarPorMergeSort(derecha));
+    }
+
+    public static double[] mezclar(double[] izquierda, double[] derecha) {
+        double[] resultado = new double[izquierda.length + derecha.length];
+        int i = 0, j = 0, k = 0;
+
+        while (i < izquierda.length && j < derecha.length) {
+            if (izquierda[i] <= derecha[j]) {
+                resultado[k++] = izquierda[i++];
+            } else {
+                resultado[k++] = derecha[j++];
+            }
+        }
+
+        while (i < izquierda.length) {
+            resultado[k++] = izquierda[i++];
+        }
+
+        while (j < derecha.length) {
+            resultado[k++] = derecha[j++];
+        }
+
+        return resultado;
+    }
+}
