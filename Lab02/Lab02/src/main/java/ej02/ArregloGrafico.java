@@ -2,6 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+
 package ej02;
 
 /**
@@ -9,9 +10,11 @@ package ej02;
  * @author Multipropósito2
  */
 
+import javax.swing.JOptionPane;
 public class ArregloGrafico extends javax.swing.JFrame {
 
-   
+   private Carro[] carros;  // Arreglo para almacenar los carros
+    private int contadorCarros = 0;  // Contador de carros ingresados
 
     /**
      * Creates new form ArregloGrafico
@@ -157,9 +160,9 @@ public class ArregloGrafico extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(txtCantidadCarros, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnConfirmarCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnConfirmarCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(btnOrdenarKilometraje, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(56, 56, 56))))
         );
@@ -225,7 +228,33 @@ public class ArregloGrafico extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarCarroActionPerformed
-        // TODO add your handling code here:
+        
+    if (contadorCarros < carros.length) {
+        // Obtener los datos ingresados
+        String marca = txtMarca.getText();
+        String modelo = txtModelo.getText();
+        String color = txtColor.getText();
+        int kilometraje = Integer.parseInt(txtKilometraje.getText());
+
+        // Crear un objeto Carro y almacenarlo en el arreglo
+        carros[contadorCarros] = new Carro(marca, modelo, color, kilometraje);
+        contadorCarros++;
+
+        // Limpiar los campos para el siguiente ingreso
+        txtMarca.setText("");
+        txtModelo.setText("");
+        txtColor.setText("");
+        txtKilometraje.setText("");
+
+        // Avisar si ya se han ingresado todos los carros
+        if (contadorCarros == carros.length) {
+            JOptionPane.showMessageDialog(this, "Todos los carros han sido ingresados.");
+        } else {
+            JOptionPane.showMessageDialog(this, "Carro guardado. Ingrese los datos del siguiente carro.");
+        }
+    }
+
+// TODO add your handling code here:
     }//GEN-LAST:event_btnGuardarCarroActionPerformed
 
     private void txtMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMarcaActionPerformed
@@ -257,7 +286,10 @@ public class ArregloGrafico extends javax.swing.JFrame {
     }//GEN-LAST:event_btnOrdenarModeloActionPerformed
 
     private void btnConfirmarCantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarCantidadActionPerformed
-        // TODO add your handling code here:
+    int cantidad = Integer.parseInt(txtCantidadCarros.getText());  // Leer la cantidad de carros
+    carros = new Carro[cantidad];  // Inicializar el arreglo con esa cantidad
+    contadorCarros = 0;  // Iniciar el contador en 0
+    JOptionPane.showMessageDialog(this, "Ingrese los datos del primer carro.");        // TODO add your handling code here:
     }//GEN-LAST:event_btnConfirmarCantidadActionPerformed
 
     /**
