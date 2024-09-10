@@ -147,13 +147,10 @@ public class ArregloGrafico extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addComponent(txtKilometraje, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
+                .addGap(94, 94, 94)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnGuardarCarro, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnOrdenarModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(242, 242, 242))
+                    .addComponent(btnGuardarCarro, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnOrdenarModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -162,9 +159,9 @@ public class ArregloGrafico extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnConfirmarCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(btnOrdenarKilometraje, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(56, 56, 56))))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -197,9 +194,9 @@ public class ArregloGrafico extends javax.swing.JFrame {
                                     .addComponent(txtCantidadCarros, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btnConfirmarCantidad)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
+                                .addGap(8, 8, 8)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(37, 37, 37)))
+                        .addGap(35, 35, 35)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel3)
@@ -279,10 +276,27 @@ public class ArregloGrafico extends javax.swing.JFrame {
 
     private void btnOrdenarKilometrajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrdenarKilometrajeActionPerformed
         // TODO add your handling code here:
+         if (carros != null && carros.length > 0) {
+            // Ordenar el arreglo por kilometraje
+            bubbleSortKilometraje(carros);
+            // Mostrar los carros ordenados en el JTextArea
+            mostrarCarros();
+            JOptionPane.showMessageDialog(this, "Carros ordenados por kilometraje.");
+        } else {
+            JOptionPane.showMessageDialog(this, "No hay carros para ordenar.");
+        }
     }//GEN-LAST:event_btnOrdenarKilometrajeActionPerformed
 
     private void btnOrdenarModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrdenarModeloActionPerformed
-        // TODO add your handling code here:
+       if (carros != null && carros.length > 0) {
+            // Ordenar el arreglo por año del modelo
+            bubbleSortModelo(carros);
+            // Mostrar los carros ordenados en el JTextArea
+            mostrarCarros();
+            JOptionPane.showMessageDialog(this, "Carros ordenados por modelo (año).");
+        } else {
+            JOptionPane.showMessageDialog(this, "No hay carros para ordenar.");
+        }  // TODO add your handling code here:
     }//GEN-LAST:event_btnOrdenarModeloActionPerformed
 
     private void btnConfirmarCantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarCantidadActionPerformed
