@@ -180,3 +180,35 @@ public class OrdenamientoConsola {
             return Double.NaN;  // No hay moda si todos los valores son únicos
         }
     }
+public static void realizarOperacionesConCadenas(Scanner scanner) {
+        System.out.print("Ingrese una línea de texto: ");
+        String entrada = scanner.nextLine();
+
+        // Operación 1: Reemplazar vocales
+        String caracterMasFrecuente = obtenerCaracterMasFrecuente(entrada);
+        String cadenaReemplazada = entrada.replaceAll("[aeiouAEIOU]", caracterMasFrecuente);
+
+        // Operación 2: Invertir orden de letras
+        String cadenaInvertida = new StringBuilder(entrada).reverse().toString();
+
+        System.out.println("Cadena con vocales reemplazadas: " + cadenaReemplazada);
+        System.out.println("Cadena invertida: " + cadenaInvertida);
+    }
+
+    public static String obtenerCaracterMasFrecuente(String entrada) {
+        int[] frecuencias = new int[256];
+        for (char c : entrada.toCharArray()) {
+            frecuencias[c]++;
+        }
+
+        char masFrecuente = ' ';
+        int maxRepeticiones = 0;
+        for (int i = 0; i < frecuencias.length; i++) {
+            if (frecuencias[i] > maxRepeticiones) {
+                maxRepeticiones = frecuencias[i];
+                masFrecuente = (char) i;
+            }
+        }
+
+        return String.valueOf(masFrecuente);
+    }
