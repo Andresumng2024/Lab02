@@ -15,12 +15,12 @@ public class OrdenamientoConsola {
         boolean salir = false;
 
         while (!salir) {
-            System.out.println("Menú Principal");
-            System.out.println("1. Cálculos Estadísticos");
+            System.out.println("Menu Principal");
+            System.out.println("1. Calculos Estadisticos");
             System.out.println("2. Operaciones con Cadenas");
-            System.out.println("3. Métodos de Ordenamiento");
+            System.out.println("3. Metodos de Ordenamiento");
             System.out.println("4. Salir");
-            System.out.print("Seleccione una opción: ");
+            System.out.print("Seleccione una opcion: ");
             int opcion = scanner.nextInt();
 
             switch (opcion) {
@@ -38,7 +38,7 @@ public class OrdenamientoConsola {
                     System.out.println("Saliendo del programa...");
                     break;
                 default:
-                    System.out.println("Opción no válida, por favor intente de nuevo.");
+                    System.out.println("Opcion no valida, por favor intente de nuevo.");
             }
         }
     }
@@ -46,10 +46,10 @@ public class OrdenamientoConsola {
         boolean salir = false;
 
         while (!salir) {
-            System.out.println("\nMenú de Cálculos Estadísticos");
+            System.out.println("\nMenu de Calculos Estadisticos");
             System.out.println("1. Ingresar datos y calcular");
-            System.out.println("2. Regresar al Menú Principal");
-            System.out.print("Seleccione una opción: ");
+            System.out.println("2. Regresar al Menu Principal");
+            System.out.print("Seleccione una opcion: ");
             int opcion = scanner.nextInt();
 
             switch (opcion) {
@@ -60,7 +60,7 @@ public class OrdenamientoConsola {
                     salir = true;
                     break;
                 default:
-                    System.out.println("Opción no válida, por favor intente de nuevo.");
+                    System.out.println("Opcion no valida, por favor intente de nuevo.");
             }
         }
     }
@@ -68,10 +68,10 @@ public class OrdenamientoConsola {
         boolean salir = false;
 
         while (!salir) {
-            System.out.println("\nMenú de Operaciones con Cadenas");
+            System.out.println("\nMenu de Operaciones con Cadenas");
             System.out.println("1. Realizar operaciones con cadenas");
-            System.out.println("2. Regresar al Menú Principal");
-            System.out.print("Seleccione una opción: ");
+            System.out.println("2. Regresar al Menu Principal");
+            System.out.print("Seleccione una opcion: ");
             int opcion = scanner.nextInt();
             scanner.nextLine();  // Para consumir la nueva línea
 
@@ -83,7 +83,7 @@ public class OrdenamientoConsola {
                     salir = true;
                     break;
                 default:
-                    System.out.println("Opción no válida, por favor intente de nuevo.");
+                    System.out.println("Opcion no valida, por favor intente de nuevo.");
             }
         }
     }
@@ -91,10 +91,10 @@ public class OrdenamientoConsola {
         boolean salir = false;
 
         while (!salir) {
-            System.out.println("\nMenú de Métodos de Ordenamiento");
+            System.out.println("\nMenu de Metodos de Ordenamiento");
             System.out.println("1. Ordenar arreglo");
-            System.out.println("2. Regresar al Menú Principal");
-            System.out.print("Seleccione una opción: ");
+            System.out.println("2. Regresar al Menu Principal");
+            System.out.print("Seleccione una opcion: ");
             int opcion = scanner.nextInt();
 
             switch (opcion) {
@@ -105,13 +105,13 @@ public class OrdenamientoConsola {
                     salir = true;
                     break;
                 default:
-                    System.out.println("Opción no válida, por favor intente de nuevo.");
+                    System.out.println("Opcion no valida, por favor intente de nuevo.");
             }
         }
     }
 
     public static void realizarCalculosEstadisticos(Scanner scanner) {
-        System.out.print("Ingrese el tamaño del arreglo: ");
+        System.out.print("Ingrese el tamano del arreglo: ");
         int tamano = scanner.nextInt();
         double[] arreglo = new double[tamano];
 
@@ -131,7 +131,7 @@ public class OrdenamientoConsola {
         System.out.println("Media: " + media);
         System.out.println("Mediana: " + mediana);
         System.out.println("Varianza: " + varianza);
-        System.out.println("Desviación Estándar: " + desviacionEstandar);
+        System.out.println("Desviacion Estándar: " + desviacionEstandar);
         System.out.println("Moda: " + (Double.isNaN(moda) ? "No hay moda" : moda));
     }
    public static double calcularMedia(double[] arreglo) {
@@ -181,7 +181,7 @@ public class OrdenamientoConsola {
         }
     }
 public static void realizarOperacionesConCadenas(Scanner scanner) {
-        System.out.print("Ingrese una línea de texto: ");
+        System.out.print("Ingrese una linea de texto: ");
         String entrada = scanner.nextLine();
 
         // Operación 1: Reemplazar vocales
@@ -213,7 +213,7 @@ public static void realizarOperacionesConCadenas(Scanner scanner) {
         return String.valueOf(masFrecuente);
     }
  public static void realizarOrdenamiento(Scanner scanner) {
-        System.out.print("Ingrese el tamaño del arreglo: ");
+        System.out.print("Ingrese el tamano del arreglo: ");
         int tamano = scanner.nextInt();
         double[] arreglo = new double[tamano];
 
@@ -230,11 +230,11 @@ public static void realizarOperacionesConCadenas(Scanner scanner) {
 
         // Inserción
         double[] arregloOrdenadoInsercion = ordenarPorInsercion(arreglo.clone());
-        System.out.println("Ordenado por Inserción: " + Arrays.toString(arregloOrdenadoInsercion));
+        System.out.println("Ordenado por Insercion: " + Arrays.toString(arregloOrdenadoInsercion));
 
         // Selección
         double[] arregloOrdenadoSeleccion = ordenarPorSeleccion(arreglo.clone());
-        System.out.println("Ordenado por Selección: " + Arrays.toString(arregloOrdenadoSeleccion));
+        System.out.println("Ordenado por Seleccion: " + Arrays.toString(arregloOrdenadoSeleccion));
 
         // MergeSort
         double[] arregloOrdenadoMergeSort = ordenarPorMergeSort(arreglo.clone());
