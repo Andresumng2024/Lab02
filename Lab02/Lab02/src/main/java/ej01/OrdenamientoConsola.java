@@ -134,3 +134,49 @@ public class OrdenamientoConsola {
         System.out.println("Desviación Estándar: " + desviacionEstandar);
         System.out.println("Moda: " + (Double.isNaN(moda) ? "No hay moda" : moda));
     }
+   public static double calcularMedia(double[] arreglo) {
+        double suma = 0;
+        for (double num : arreglo) {
+            suma += num;
+        }
+        return suma / arreglo.length;
+    }
+
+    public static double calcularMediana(double[] arreglo) {
+        Arrays.sort(arreglo);
+        if (arreglo.length % 2 == 0) {
+            return (arreglo[arreglo.length / 2 - 1] + arreglo[arreglo.length / 2]) / 2.0;
+        } else {
+            return arreglo[arreglo.length / 2];
+        }
+    }
+
+    public static double calcularVarianza(double[] arreglo, double media) {
+        double suma = 0;
+        for (double num : arreglo) {
+            suma += Math.pow(num - media, 2);
+        }
+        return suma / arreglo.length;
+    }
+
+    public static double calcularModa(double[] arreglo) {
+        double moda = Double.NaN;
+        int maxRepeticiones = 0;
+
+        for (int i = 0; i < arreglo.length; i++) {
+            int cuenta = 0;
+            for (int j = 0; j < arreglo.length; j++) {
+                if (arreglo[j] == arreglo[i]) cuenta++;
+            }
+            if (cuenta > maxRepeticiones) {
+                maxRepeticiones = cuenta;
+                moda = arreglo[i];
+            }
+        }
+
+        if (maxRepeticiones > 1) {
+            return moda;
+        } else {
+            return Double.NaN;  // No hay moda si todos los valores son únicos
+        }
+    }
