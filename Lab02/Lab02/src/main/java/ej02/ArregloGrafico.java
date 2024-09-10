@@ -326,7 +326,39 @@ public class ArregloGrafico extends javax.swing.JFrame {
             }
         });
     }
-
+    public static void bubbleSortKilometraje(Carro[] carros) {
+    int n = carros.length;
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            if (carros[j].getKilometraje() > carros[j + 1].getKilometraje()) {
+                // Intercambiar si el kilometraje actual es mayor
+                Carro temp = carros[j];
+                carros[j] = carros[j + 1];
+                carros[j + 1] = temp;
+            }
+        }
+    }
+}
+    public static void bubbleSortModelo(Carro[] carros) {
+    int n = carros.length;
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            if (Integer.parseInt(carros[j].getModelo()) > Integer.parseInt(carros[j + 1].getModelo())) {
+                // Intercambiar si el modelo (año) actual es mayor
+                Carro temp = carros[j];
+                carros[j] = carros[j + 1];
+                carros[j + 1] = temp;
+            }
+        }
+    }
+}
+private void mostrarCarros() {
+    StringBuilder sb = new StringBuilder();
+    for (Carro carro : carros) {
+        sb.append(carro.toString()).append("\n");
+    }
+    txtAreaCarros.setText(sb.toString());
+}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConfirmarCantidad;
     private javax.swing.JButton btnGuardarCarro;
